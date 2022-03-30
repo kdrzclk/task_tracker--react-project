@@ -26,6 +26,8 @@ function App() {
     },
   ]);
 
+  const [showAddTask, setShowAddTask] = useState(false);
+
   // DELETE TASK
   const deleteTask = (deletedTaskId) => {
     // console.log("delete", deletedTaskId);
@@ -49,11 +51,22 @@ function App() {
     );
   };
 
+  // TOGGLE SHOW
+  const toggleShow = () => setShowAddTask(!showAddTask);
+
   return (
     <div className="container">
-      <Header title="TASK TRACKER" />
-      <AddTask addTask={addTask} />
-      <Tasks tasks={tasks} deleteTask={deleteTask} toggleDone={toggleDone} />
+      <Header
+        title="TASK TRACKER"
+        showAddTask={showAddTask}
+        toggleShow={toggleShow}
+      />
+      {showAddTask && <AddTask addTask={addTask} />}
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} deleteTask={deleteTask} toggleDone={toggleDone} />
+      ) : (
+        <h2 style={{ textAlign: "center" }}>No Task The Show</h2>
+      )}
     </div>
   );
 }
