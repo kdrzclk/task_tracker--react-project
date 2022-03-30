@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import AddTask from "./components/AddTask";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
@@ -31,10 +32,28 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== deletedTaskId));
   };
 
+  // ADD TASK
+  const addTask = (newTask) => {
+    const id = Math.floor(Math.random() * 1000 + 1);
+    const addNewTask = { id, ...newTask };
+    setTasks([...tasks, addNewTask]);
+  };
+
+  // TOGGLE DONE
+  const toggleDone = (toggleDoneId) => {
+    // console.log("double cklick", toggleDoneId);
+    setTasks(
+      tasks.map((task) =>
+        task.id === toggleDoneId ? { ...task, isDone: !task.isDone } : task
+      )
+    );
+  };
+
   return (
     <div className="container">
       <Header title="TASK TRACKER" />
-      <Tasks tasks={tasks} deleteTask={deleteTask} />
+      <AddTask addTask={addTask} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} toggleDone={toggleDone} />
     </div>
   );
 }
