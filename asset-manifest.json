@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/task_tracker--react-project/static/css/main.8c789665.css",
+    "main.js": "/task_tracker--react-project/static/js/main.6dfde366.js",
+    "index.html": "/task_tracker--react-project/index.html",
+    "main.8c789665.css.map": "/task_tracker--react-project/static/css/main.8c789665.css.map",
+    "main.6dfde366.js.map": "/task_tracker--react-project/static/js/main.6dfde366.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8c789665.css",
+    "static/js/main.6dfde366.js"
+  ]
+}
